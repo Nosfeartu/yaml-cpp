@@ -18,7 +18,7 @@ project "yaml-cpp"
 		"include"
 	}
 
-	 defines
+	defines
     {
         "YAML_CPP_STATIC_DEFINE"
     }
