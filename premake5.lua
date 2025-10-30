@@ -17,11 +17,20 @@ project "yaml-cpp"
 	{
 		"include"
 	}
+
+	 defines
+    {
+        "YAML_CPP_STATIC_DEFINE"
+    }
 	
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++20"
 		staticruntime "On"
+
+		--4244: conversion warnings (like int to float, size_t to int);
+		--4267: conversion from size_t to smaller type
+		disablewarnings { "4244", "4267" }  
 
 	filter "system:linux"
 		pic "On"
