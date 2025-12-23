@@ -2,9 +2,9 @@ project "yaml-cpp"
 	kind "StaticLib"
 	language "C++"
 	
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-	
+	targetdir ("%{wks.location}/Binaries/" .. OutputDir .. "/%{prj.name}")
+	objdir ("%{wks.location}/Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
+
 	files
 	{
 		"src/**.h",
@@ -44,4 +44,9 @@ project "yaml-cpp"
 
 	filter "configurations:Release"
 		runtime "Release"
-		optimize "on"
+		optimize "speed"
+
+    filter "configurations:Dist"
+		runtime "Release"
+		optimize "speed"
+        symbols "off"
